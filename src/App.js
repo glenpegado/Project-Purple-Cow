@@ -1,24 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import { useFetch } from './fetchAPI';
+import { useFetch } from './fetchAPI';
 
 const key = '1ccb732e-b55a-4404-ad3f-0f99c02fe44e';
-const url = `https://api.countapi.xyz/hit/namespace/${key}`;
+const URL = `https://api.countapi.xyz/hit/namespace/${key}`;
 
 function App() {
-  const [counting, setCounting] = useState([]);
-  const [page, setPage] = useState([]);
-
-  const CountAPI = async () => {
-    const res = await fetch(url);
-    const count = await res.json();
-    console.log(count);
-    setCounting(count);
-  };
-
-  useEffect(() => {
-    CountAPI();
-  }, [url]);
-
+  //UseFetch
+  const { setPage, page, counting } = useFetch(URL);
   //BODY
   return (
     <div>

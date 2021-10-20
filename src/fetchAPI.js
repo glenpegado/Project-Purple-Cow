@@ -1,21 +1,19 @@
 import { useState, useEffect } from 'react';
 
 export function useFetch(url) {
-  //STATE
-  const [counting, setCounting] = useState(0);
+  const [counting, setCounting] = useState([]);
+  const [page, setPage] = useState([]);
 
-  //Fetch
   const CountAPI = async () => {
     const res = await fetch(url);
     const count = await res.json();
-
+    console.log(count);
     setCounting(count);
   };
 
-  //UseEffect
   useEffect(() => {
     CountAPI();
   }, [url]);
 
-  return counting;
+  return { setPage, page, counting };
 }
