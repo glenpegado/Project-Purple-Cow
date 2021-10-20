@@ -2,22 +2,20 @@ import { useState, useEffect } from 'react';
 
 export function useFetch(url) {
   //STATE
-  const [loading, setLoading] = useState(true); //boolean
-  const [products, setProducts] = useState([]); //empty array
+  const [counting, setCounting] = useState(0);
 
   //Fetch
-  const getProducts = async () => {
+  const CountAPI = async () => {
     const res = await fetch(url);
-    const products = await res.json();
+    const count = await res.json();
 
-    setProducts(products); // add json response to array
-    setLoading(false); // change to false
+    setCounting(count);
   };
 
   //UseEffect
   useEffect(() => {
-    getProducts();
+    CountAPI();
   }, [url]);
 
-  return { loading, products };
+  return counting;
 }
