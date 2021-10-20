@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useFetch } from './fetchAPI';
 
@@ -6,13 +7,24 @@ const URL = `https://api.countapi.xyz/hit/namespace/${key}`;
 
 function App() {
   //UseFetch
-  const { setPage, page, counting } = useFetch(URL);
+  const { setClicked, setPage, page, counting, clicked } = useFetch(URL);
+
+  const PageClicks = () => {
+    setClicked(true);
+    setTimeout(() => {
+      setPage(counting);
+    }, 800);
+  };
+
   //BODY
   return (
-    <div>
+    <div className='page'>
       <h1>Project Purple Cow</h1>
-      <button onClick={() => setPage(counting)}>Button</button>
-      <h1>{page.value}</h1>
+      <button className='button' onClick={PageClicks}>
+        Button
+      </button>
+
+      {clicked ? <h2>The number of hits are: {page.value}</h2> : clicked}
     </div>
   );
 }

@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 export function useFetch(url) {
   const [counting, setCounting] = useState([]);
   const [page, setPage] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
   const CountAPI = async () => {
     const res = await fetch(url);
     const count = await res.json();
-    console.log(count);
+
     setCounting(count);
   };
 
@@ -15,5 +16,5 @@ export function useFetch(url) {
     CountAPI();
   }, [url]);
 
-  return { setPage, page, counting };
+  return { setClicked, setPage, page, counting, clicked };
 }
