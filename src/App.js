@@ -5,7 +5,8 @@ const key = '1ccb732e-b55a-4404-ad3f-0f99c02fe44e';
 const url = `https://api.countapi.xyz/hit/namespace/${key}`;
 
 function App() {
-  const [counting, setCounting] = useState(0);
+  const [counting, setCounting] = useState([]);
+  const [page, setPage] = useState([]);
 
   const CountAPI = async () => {
     const res = await fetch(url);
@@ -18,14 +19,12 @@ function App() {
     CountAPI();
   }, [url]);
 
-  // const counter = useFetch(url);
-  // console.log(counter);
-
   //BODY
   return (
     <div>
       <h1>Project Purple Cow</h1>
-      <button onClick={(el) => setCounting(el + 1)}>Click</button>
+      <button onClick={() => setPage(counting)}>Button</button>
+      <h1>{page.value}</h1>
     </div>
   );
 }
