@@ -1,6 +1,6 @@
 # Future Updates
 
-Add Stylying to the page with a counter and page views. Include cross browser support with mobile compatibility. Also make key endpoints more secure if theyd ever go into production. Lastly, intalling the API npm package would allows to add more features using their promise based tools.
+For future updates I would have added styling to the page and also a counter and page views value. I'd also include cross browser support with mobile compatibility. Furthermore, I'd make the key endpoint more secure if it was ever going  to be used into production. Lastly, installing the API npm package would allow us to add more features using their promise based tools.
 
 ## Changes
 
